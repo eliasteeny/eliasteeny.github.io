@@ -346,16 +346,21 @@
               <a class="active" data-filter="*">All</a>
             </li>
             <li class="list-inline-item">
-              <a class="" data-filter=".seo">Seo</a>
+              <a class="" data-filter=".flutter">Flutter - Android - iOS</a>
             </li>
             <li class="list-inline-item">
-              <a class="" data-filter=".webdesign">Webdesign</a>
+              <a class="" data-filter=".node">Node.js</a>
             </li>
             <li class="list-inline-item">
-              <a class="" data-filter=".WORK">WORK</a>
+              <a class="" data-filter=".next" onclick="handleWorkFilterClick()"
+                >Next.js - React.js</a
+              >
             </li>
             <li class="list-inline-item">
-              <a class="" data-filter=".wordpress">Wordpress</a>
+              <a class="" data-filter=".js">Javascript</a>
+            </li>
+            <li class="list-inline-item">
+              <a class="" data-filter=".server">Server</a>
             </li>
           </ul>
         </div>
@@ -363,7 +368,7 @@
       <div class="container">
         <div class="row mt-4 work-filter">
           <div
-            class="col-lg-4 work_item webdesign wordpress work_card_base rounded"
+            class="col-lg-4 work_item flutter node server next work_card_base rounded"
             data-aos="fade-up"
           >
             <a href="https://feelwelle.com" target="_blank">
@@ -391,7 +396,7 @@
           </div>
 
           <div
-            class="col-lg-4 work_item webdesign wordpress work_card_base rounded"
+            class="col-lg-4 work_item flutter work_card_base rounded"
             data-aos="fade-up"
           >
             <a href="https://www.eatthismuch.com/app" target="_blank">
@@ -417,7 +422,7 @@
           </div>
 
           <div
-            class="col-lg-4 work_item webdesign wordpress work_card_base rounded"
+            class="col-lg-4 work_item flutter js work_card_base rounded"
             data-aos="fade-up"
           >
             <a href="https://www.companion.to" target="_blank">
@@ -444,7 +449,7 @@
           </div>
 
           <div
-            class="col-lg-4 work_item webdesign wordpress work_card_base rounded"
+            class="col-lg-4 work_item flutter work_card_base rounded"
             data-aos="fade-up"
           >
             <a href="https://www.planflow.io" target="_blank">
@@ -469,7 +474,7 @@
           </div>
 
           <div
-            class="col-lg-4 work_item webdesign wordpress work_card_base rounded"
+            class="col-lg-4 work_item flutter node server work_card_base rounded"
             data-aos="fade-up"
           >
             <a href="https://mycolors.com" target="_blank">
@@ -496,7 +501,7 @@
           </div>
 
           <div
-            class="col-lg-4 work_item webdesign wordpress work_card_base rounded"
+            class="col-lg-4 work_item flutter node server work_card_base rounded"
             data-aos="fade-up"
           >
             <div class="work_box work_card rounded">
@@ -517,7 +522,7 @@
           </div>
 
           <div
-            class="col-lg-4 work_item webdesign wordpress work_card_base rounded"
+            class="col-lg-4 work_item flutter work_card_base rounded"
             data-aos="fade-up"
           >
             <a
@@ -540,7 +545,7 @@
           </div>
 
           <div
-            class="col-lg-4 work_item webdesign wordpress work_card_base rounded"
+            class="col-lg-4 work_item flutter work_card_base rounded"
             data-aos="fade-up"
           >
             <div class="work_box work_card rounded">
@@ -560,7 +565,7 @@
           </div>
 
           <div
-            class="col-lg-4 work_item webdesign wordpress work_card_base rounded"
+            class="col-lg-4 work_item server work_card_base rounded"
             data-aos="fade-up"
           >
             <div class="work_box work_card rounded">
@@ -581,7 +586,7 @@
           </div>
 
           <div
-            class="col-lg-4 work_item webdesign wordpress work_card_base rounded"
+            class="col-lg-4 work_item server work_card_base rounded"
             data-aos="fade-up"
           >
             <div class="work_box work_card rounded">
@@ -600,7 +605,7 @@
           </div>
 
           <div
-            class="col-lg-4 work_item webdesign wordpress work_card_base rounded"
+            class="col-lg-4 work_item flutter next server work_card_base rounded"
             data-aos="fade-up"
           >
             <div class="work_box work_card rounded">
@@ -624,7 +629,7 @@
           </div>
 
           <div
-            class="col-lg-4 work_item webdesign wordpress work_card_base rounded"
+            class="col-lg-4 work_item node js server work_card_base rounded"
             data-aos="fade-up"
           >
             <div class="work_box work_card rounded">
@@ -998,7 +1003,14 @@
       AOS.init({
         easing: "ease-in-out-sine",
         duration: 1000,
+        disableMutationObserver: true,
       });
+
+      function handleWorkFilterClick() {
+        setTimeout(function () {
+          // AOS.refresh();
+        }, 1500);
+      }
     </script>
   </body>
 </html>

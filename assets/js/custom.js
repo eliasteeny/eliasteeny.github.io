@@ -38,36 +38,74 @@
         offset: 70,
       });
     }),
-    //Work
-    (EliasApp.prototype.initWork = function () {
-      $(window).on("load", function () {
-        var $container = $(".work-filter");
-        var $filter = $("#menu-filter");
+    (EliasApp.prototype.currentRunnerIndex = 0);
+
+  //Work
+  (EliasApp.prototype.initWork = function () {
+    $(window).on("load", function () {
+      var $container = $(".work-filter");
+      var $filter = $("#menu-filter");
+      $container.isotope({
+        filter: "*",
+        layoutMode: "masonry",
+        animationOptions: {
+          duration: 750,
+          easing: "linear",
+        },
+      });
+
+      $filter.find("a").on("click", function () {
+        EliasApp.prototype.currentRunnerIndex++;
+        var currentLocalIndex = EliasApp.prototype.currentRunnerIndex;
+
+        var selector = $(this).attr("data-filter");
+        $filter.find("a").removeClass("active");
+        $(this).addClass("active");
+
+        for (let i = 0; i < $container[0].children.length; i++) {
+          let childItem = $container[0].children[i];
+
+          childItem.removeAttribute("data-aos");
+        }
+
+        AOS.refreshHard();
+
         $container.isotope({
-          filter: "*",
-          layoutMode: "masonry",
+          filter: selector,
           animationOptions: {
-            duration: 750,
+            animationDuration: 750,
             easing: "linear",
+            queue: false,
           },
         });
 
-        $filter.find("a").on("click", function () {
-          var selector = $(this).attr("data-filter");
-          $filter.find("a").removeClass("active");
-          $(this).addClass("active");
-          $container.isotope({
-            filter: selector,
-            animationOptions: {
-              animationDuration: 750,
-              easing: "linear",
-              queue: false,
-            },
-          });
-          return false;
-        });
+        setTimeout(function () {
+          if (currentLocalIndex !== EliasApp.prototype.currentRunnerIndex) {
+            return;
+          }
+
+          for (let i = 0; i < $container[0].children.length; i++) {
+            let childItem = $container[0].children[i];
+            let classList = childItem.classList;
+
+            let localSelector = selector.substring(1);
+
+            if (selector === "*" || classList.contains(localSelector)) {
+              childItem.style.display = "initials";
+            } else {
+              childItem.style.display = "none";
+            }
+
+            childItem.setAttribute("data-aos", "fade-up");
+          }
+
+          AOS.refreshHard();
+        }, 1000);
+
+        return false;
       });
-    }),
+    });
+  }),
     //Magnificpop
     (EliasApp.prototype.initMagnificPopup = function () {
       $(".img-zoom").magnificPopup({
