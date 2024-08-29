@@ -38,21 +38,11 @@ $(function () {
       loadingSpinner.css("display", "none");
     }
 
-    const formDataToJson = new FormData(e.target);
-
-    const formObject = {};
-    formDataToJson.forEach((value, key) => {
-      formObject[key] = value;
-    });
-
-    const jsonAsString = JSON.stringify(formObject);
-
     // Submit the form using AJAX.
     $.ajax({
       type: "POST",
-      url: "https://script.google.com/macros/s/AKfycbyuKl-0Q_JU_SYnXPoVtYA1lgTwzL3H4eYIfI1mTBCjb-c4WgXUQR_zv3-ua0xgBgmmyg/exec",
-      data: jsonAsString,
-      contentType: "text/plain;charset=utf-8",
+      url: "https://script.google.com/macros/s/AKfycbws3OpPgcZpMl-miFjLdjUkmofRodRkUO0NO7CEEcgHf6Fn1qmArJP8gwy4lGtQb5swGg/exec",
+      data: formData,
     })
       .done(function (response) {
         if (!response || !response.result || response.result === "error") {
